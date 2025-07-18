@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- META SEO (Search Engine Optimization) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nabila Store menyediakan jasa kebutuhan media sosial terlengkap. Jasa tambah view YouTube, akun Facebook dan Gmail fresh, unban WhatsApp, hingga pembuatan tools AI dan website. Pesan cepat via WhatsApp.">
+    <meta name="keywords" content="jasa youtube, jasa media sosial, unban whatsapp, akun facebook, akun gmail, nabila store, tools ai, script termux, web store">
+    <meta name="author" content="Nabila Store">
+    <title>Nabila Store - Pusat Jasa Kebutuhan Media Sosial & Digital</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/fluency/48/n.png" type="image/x-icon">
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Schema.org Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Nabila Store Support Media Sosial",
+      "image": "https://ibb.co/4RvZF7Nh",
+      "description": "Menyediakan berbagai jasa kebutuhan media sosial seperti tambah view YouTube, akun fresh Facebook & Gmail, jasa unban WhatsApp, hingga pembuatan tools AI dan web store.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Kamal Raya",
+        "addressLocality": "Cengkareng Barat",
+        "addressRegion": "Jakarta Barat",
+        "postalCode": "11730",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-6.143716",
+        "longitude": "106.722656"
+      },
+      "url": "#",
+      "telephone": "+6285810526151",
+      "priceRange": "Rp 500 - Rp 200.000",
+      "paymentAccepted": "GoPay",
+      "openingHours": "Mo-Su 08:00-22:00"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #D4AF37; /* Gold */
+            --secondary-color: #1a1a1a;
+            --background-color: #121212;
+            --text-color: #e0e0e0;
+            --header-font: 'Playfair Display', serif;
+            --body-font: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Notifikasi Berjalan --- */
+        .marquee-container {
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 10px 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-weight: 600;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 45s linear infinite;
+            padding-left: 100%;
+        }
+
+        .marquee-content span {
+            margin: 0 50px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- Sidebar / Navbar --- */
+        #main-nav {
+            position: fixed;
+            top: 45px; /* Sesuaikan dengan tinggi marquee */
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        #main-nav .logo {
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        #main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        #main-nav ul li {
+            margin-left: 2rem;
+        }
+
+        #main-nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #main-nav ul li a:hover, #main-nav ul li a.active {
+            color: var(--primary-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            padding-top: 150px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1554494541-34d6ff059999?q=80&w=2071&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 150px 20px 50px;
+        }
+        
+        .header-content h1 {
+            font-family: var(--header-font);
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .header-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            background: var(--primary-color);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+
+        /* --- Section Styling --- */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--header-font);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-family: var(--header-font);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .product-desc {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        /* --- Form Styling --- */
+        .order-form {
+            margin-top: auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            background: var(--background-color);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+        
+        .order-button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .order-button:hover {
+             background: #fff;
+        }
+        
+        /* --- Map Section --- */
+        #lokasi .map-container {
+            position: relative;
+            padding-bottom: 50%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid var(--primary-color);
+        }
+
+        #lokasi iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* --- Syarat & Ketentuan --- */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 40px;
+        }
+
+        .term-card {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .term-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-family: var(--header-font);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--secondary-color);
+            color: #aaa;
+            padding: 40px 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+             max-width: 800px;
+             margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-family: var(--header-font);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .payment-info {
+            margin: 20px 0;
+        }
+        
+        .payment-info img {
+            width: 100px;
+        }
+
+        .payment-info p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .footer-copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            #main-nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                padding: 1rem 0;
+            }
+
+            #main-nav ul.show {
+                display: flex;
+            }
+
+            #main-nav ul li {
+                margin: 1rem;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notifikasi Berjalan Atas Layar -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>👋 Selamat Datang di Nabila Store! Pusat Kebutuhan Digital & Media Sosial Anda.</span>
+            <span>Developer: Nabila Ahmad Official. Semua produk dijamin berkualitas dengan garansi.</span>
+            <span>Syarat Order: Isi form di bawah produk, lalu klik "Order via WhatsApp" untuk konfirmasi otomatis ke Admin.</span>
+            <span>Pembayaran dapat melalui GoPay yang tertera di bagian bawah website.</span>
+        </div>
+    </div>
+
+    <!-- Toolbar / Navigasi -->
+    <nav id="main-nav">
+        <a href="#" class="logo">Nabila Store</a>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-links">
+            <li><a href="#produk" class="nav-link">Produk</a></li>
+            <li><a href="#syarat" class="nav-link">Cara Order</a></li>
+            <li><a href="#lokasi" class="nav-link">Lokasi Kami</a></li>
+            <li><a href="#kontak" class="nav-link">Kontak & Pembayaran</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Header -->
+    <header id="beranda">
+        <div class="header-content">
+            <h1>Tingkatkan Eksistensi Digital Anda Bersama <span>Nabila Store</span></h1>
+            <p>Kami menyediakan solusi lengkap untuk semua kebutuhan media sosial dan digital Anda, mulai dari interaksi hingga pembuatan tools canggih. Cepat, aman, dan terpercaya.</p>
+            <a href="#produk" class="cta-button">Lihat Semua Produk</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Bagian Produk -->
+        <section id="produk" class="section">
+            <h2 class="section-title">Katalog Produk</h2>
+            <p class="section-subtitle">Pilih layanan yang Anda butuhkan. Isi formulir singkat dan pesan langsung melalui WhatsApp untuk proses yang lebih cepat.</p>
+            
+            <div class="product-grid">
+                
+                <!-- Produk 1: Akun FB Fresh -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/1fYzJ6bt/akun-fb.jpg" alt="Akun Facebook Fresh" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Akun Facebook Fresh</h3>
+                        <p class="product-price">Harga: Rp 500 / Akun</p>
+                        <p class="product-desc">Akun Facebook baru dan fresh, siap digunakan untuk berbagai kebutuhan. Garansi ganti baru jika terjadi masalah.</p>
+                        <form class="order-form" onsubmit="orderProduk(event, 'Akun FB Fresh')">
+                            <div class="form-group">
+                                <label for="fb-jumlah">Jumlah Akun</label>
+                                <input type="number" id="fb-jumlah" class="form-control" placeholder="Contoh: 10" min="1" required>
+                            </div>
+                            <button type="submit" class="order-button"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Produk 2: Jasa YouTube -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/KxSq5Tz/jasa-youtube.jpg" alt="Jasa Tambah View YouTube" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Jasa Interaksi YouTube</h3>
+                        <p class="product-price">Mulai dari Rp 50 / view</p>
+                        <p class="product-desc">100% Real User Luar Negeri (Bukan Bot).<br>
+                        - Subscribe: Rp 300/sub<br>
+                        - Like: Rp 100/like<br>
+                        - Viewer: Rp 50/view<br>
+                        Garansi ganti baru jika drop.</p>
+                        <form class="order-form" onsubmit="orderProduk(event, 'Jasa YouTube')">
+                             <div class="form-group">
+                                <label for="yt-link">Link Channel/Video</label>
+                                <input type="url" id="yt-link" class="form-control" placeholder="https://youtube.com/..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="yt-subs">Jumlah Subscribe (Opsional)</label>
+                                <input type="number" id="yt-subs" class="form-control" placeholder="Contoh: 100">
+                            </div>
+                            <div class="form-group">
+                                <label for="yt-likes">Jumlah Like (Opsional)</label>
+                                <input type="number" id="yt-likes" class="form-control" placeholder="Contoh: 200">
+                            </div>
+                             <div class="form-group">
+                                <label for="yt-views">Jumlah Viewer (Opsional)</label>
+                                <input type="number" id="yt-views" class="form-control" placeholder="Contoh: 1000">
+                            </div>
+                            <button type="submit" class="order-button"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Produk 3: Jasa Unban WhatsApp -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/rR90NrP/unban-wa.jpg" alt="Jasa Unban WhatsApp" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Jasa Unban WhatsApp</h3>
+                        <p class="product-price">Rp 30.000 - Rp 100.000</p>
+                        <p class="product-desc">Solusi untuk akun WhatsApp yang diblokir. Progress cepat dan garansi refund jika gagal.</p>
+                        <form class="order-form" onsubmit="orderProduk(event, 'Jasa Unban WhatsApp')">
+                            <div class="form-group">
+                                <label for="wa-nomor">Nomor WhatsApp yg di-banned</label>
+                                <input type="tel" id="wa-nomor" class="form-control" placeholder="Contoh: 08123456789" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wa-tipe">Tipe Layanan</label>
+                                <select id="wa-tipe" class="form-control" required>
+                                    <option value="">-- Pilih Tipe --</option>
+                                    <option value="Unbanned Sementara (Rp 30.000)">Unbanned Sementara (Rp 30.000)</option>
+                                    <option value="Unbanned Permanen (Rp 100.000)">Unbanned Permanen (Rp 100.000)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="order-button"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Produk 4: Akun Gmail Fresh -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/bMM2ZmR/akun-gmail.jpg" alt="Akun Gmail Fresh" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Akun Gmail Fresh</h3>
+                        <p class="product-price">Harga: Rp 800 / Akun</p>
+                        <p class="product-desc">Akun Gmail baru, cocok untuk verifikasi, pendaftaran, dan kebutuhan lainnya. Dibuat secara manual.</p>
+                        <form class="order-form" onsubmit="orderProduk(event, 'Akun Gmail Fresh')">
+                            <div class="form-group">
+                                <label for="gmail-jumlah">Jumlah Akun</label>
+                                <input type="number" id="gmail-jumlah" class="form-control" placeholder="Contoh: 20" min="1" required>
+                            </div>
+                            <button type="submit" class="order-button"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Produk 5: Jasa Pembuatan Tools -->
+                <div class="product-card">
+                    <img src="https://i.ibb.co/4RvZF7N/jasa-coding.jpg" alt="Jasa Pembuatan Tools AI Web Store" class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">Jasa Pembuatan Tools Digital</h3>
+                        <p class="product-price">Mulai dari Rp 50.000</p>
+                        <p class="product-desc">Menerima jasa pembuatan Tools AI, Web Store, Script Termux, dll. Dilengkapi Maps, SEO, dan order otomatis ke WhatsApp.</p>
+                        <form class="order-form" onsubmit="orderProduk(event, 'Jasa Pembuatan Tools')">
+                            <div class="form-group">
+                                <label for="tools-deskripsi">Jelaskan Kebutuhan Anda</label>
+                                <textarea id="tools-deskripsi" class="form-control" rows="4" placeholder="Contoh: Saya butuh web store untuk jualan baju dengan pembayaran otomatis." required></textarea>
+                            </div>
+                            <button type="submit" class="order-button"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ======================================================= -->
+                <!-- TEMPAT MENAMBAHKAN PRODUK BARU -->
+                <!-- Salin dan tempel salah satu blok <div class="product-card">...</div> di atas -->
+                <!-- Lalu ubah detailnya seperti gambar, judul, harga, dan formulir. -->
+                <!-- Jangan lupa untuk memberikan id unik pada input form agar tidak bentrok. -->
+                <!-- Contoh: <input type="number" id="produkbaru-jumlah"> -->
+                <!-- ======================================================= -->
+
+            </div>
+        </section>
+        
+        <!-- Bagian Syarat & Ketentuan -->
+        <section id="syarat" class="section" style="background-color: var(--secondary-color);">
+            <h2 class="section-title">Syarat & Cara Order</h2>
+            <p class="section-subtitle">Ikuti langkah-langkah mudah berikut untuk melakukan pemesanan di Nabila Store.</p>
+            <div class="terms-grid">
+                <div class="term-card">
+                    <h3><i class="fas fa-1"></i> Pilih Produk</h3>
+                    <p>Telusuri katalog kami dan pilih produk atau layanan yang sesuai dengan kebutuhan Anda.</p>
+                </div>
+                <div class="term-card">
+                    <h3><i class="fas fa-2"></i> Isi Formulir</h3>
+                    <p>Lengkapi formulir pemesanan yang tersedia di bawah setiap produk dengan data yang valid.</p>
+                </div>
+                <div class="term-card">
+                    <h3><i class="fas fa-3"></i> Kirim ke WhatsApp</h3>
+                    <p>Klik tombol "Order via WhatsApp". Anda akan diarahkan ke WhatsApp dengan pesan order yang sudah terisi otomatis.</p>
+                </div>
+                 <div class="term-card">
+                    <h3><i class="fas fa-4"></i> Lakukan Pembayaran</h3>
+                    <p>Admin akan memberikan total dan instruksi pembayaran. Pembayaran utama melalui GoPay.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Peta Lokasi -->
+        <section id="lokasi" class="section">
+            <h2 class="section-title">Lokasi Kami</h2>
+            <p class="section-subtitle">Titik patokan lokasi kami (Map Robot) berada di SMPN 249 Cengkareng Barat, Jakarta Barat.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.042594451016!2d106.72008107474932!3d-6.124963893866299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a020968987301%3A0x6c63264170367123!2sSMPN%20249%20JAKARTA!5e0!3m2!1sen!2sid!4v1721345914371!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer dan Kontak -->
+    <footer id="kontak">
+        <div class="footer-content">
+            <div class="footer-logo">Nabila Store</div>
+            <p>Solusi Terpercaya untuk Kebutuhan Digital Anda.</p>
+            
+            <div class="payment-info">
+                <h3>Metode Pembayaran</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1280px-Gopay_logo.svg.png" alt="Logo GoPay">
+                <p>0895-3402-05302</p>
+                <p>(a.n. Admin)</p>
+            </div>
+
+            <div class="footer-copyright">
+                © 2024 - <span id="year"></span> | Nabila Store Support Media Sosial. Didesain dengan ❤️.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section, header');
+        const navLi = document.querySelectorAll('#main-nav ul li a');
+
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - sectionHeight / 3)){
+                    current = section.getAttribute('id');
+                }
+            })
+
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href').includes(current)){
+                    a.classList.add('active');
+                }
+            })
+        });
+
+        // --- Update Copyright Year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Fungsi Pemesanan WhatsApp ---
+        function orderProduk(event, namaProduk) {
+            event.preventDefault(); // Mencegah form submit biasa
+
+            const adminWhatsApp = "6285810526151"; // Nomor Admin (format internasional tanpa + atau 0)
+            let detailPesanan = "";
+
+            if (namaProduk === 'Akun FB Fresh') {
+                const jumlah = document.getElementById('fb-jumlah').value;
+                detailPesanan = `Jumlah Akun: ${jumlah}`;
+            } 
+            else if (namaProduk === 'Jasa YouTube') {
+                const link = document.getElementById('yt-link').value;
+                const subs = document.getElementById('yt-subs').value || '0';
+                const likes = document.getElementById('yt-likes').value || '0';
+                const views = document.getElementById('yt-views').value || '0';
+                detailPesanan = `Link: ${link}\nJumlah Subscribe: ${subs}\nJumlah Like: ${likes}\nJumlah Viewer: ${views}`;
+            }
+            else if (namaProduk === 'Jasa Unban WhatsApp') {
+                const nomor = document.getElementById('wa-nomor').value;
+                const tipe = document.getElementById('wa-tipe').value;
+                detailPesanan = `Nomor WA: ${nomor}\nTipe Layanan: ${tipe}`;
+            }
+            else if (namaProduk === 'Akun Gmail Fresh') {
+                const jumlah = document.getElementById('gmail-jumlah').value;
+                detailPesanan = `Jumlah Akun: ${jumlah}`;
+            }
+            else if (namaProduk === 'Jasa Pembuatan Tools') {
+                const deskripsi = document.getElementById('tools-deskripsi').value;
+                detailPesanan = `Deskripsi Kebutuhan:\n${deskripsi}`;
+            }
+
+            // Template Pesan WhatsApp
+            const pesan = `Halo Admin Nabila Store,
+
+Saya ingin memesan produk berikut:
+
+*Produk:* ${namaProduk}
+*Detail Pesanan:*
+${detailPesanan}
+
+Mohon info selanjutnya untuk total biaya dan proses pembayaran. Terima kasih.`;
+
+            // Membuat link WhatsApp
+            const linkWA = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(pesan)}`;
+            
+            // Mengarahkan pengguna ke WhatsApp
+            window.open(linkWA, '_blank');
+        }
+    </script>
+</body>
+</html>
