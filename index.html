@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Nabila Store Support Media Sosial",
-      "image": "https://ibb.co/4RvZF7Nh",
+      "image": "https://i.ibb.co/xGLvWw5/Screenshot-20240719-000216-WhatsApp.jpg",
       "description": "Menyediakan berbagai jasa kebutuhan media sosial seperti tambah view YouTube, akun fresh Facebook & Gmail, jasa unban WhatsApp, hingga pembuatan tools AI dan web store.",
       "address": {
         "@type": "PostalAddress",
@@ -104,10 +104,76 @@
             100% { transform: translateX(-100%); }
         }
 
-        /* --- Sidebar / Navbar --- */
+        /* --- Premium Sidebar & Overlay --- */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1002;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        }
+
+        .sidebar-header {
+            padding: 10px 25px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-family: var(--header-font);
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            padding: 12px 15px 12px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidebar a:hover, .sidebar a.active {
+            color: #f1f1f1;
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .sidebar a i {
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            cursor: pointer;
+        }
+        
+        /* Toolbar Atas */
         #main-nav {
             position: fixed;
-            top: 45px; /* Sesuaikan dengan tinggi marquee */
+            top: 45px;
             left: 0;
             width: 100%;
             background-color: rgba(26, 26, 26, 0.9);
@@ -126,36 +192,20 @@
             color: var(--primary-color);
             text-decoration: none;
         }
-
-        #main-nav ul {
-            list-style: none;
-            display: flex;
-        }
-        
-        #main-nav ul li {
-            margin-left: 2rem;
-        }
-
-        #main-nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        #main-nav ul li a:hover, #main-nav ul li a.active {
-            color: var(--primary-color);
-        }
         
         .menu-toggle {
-            display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .menu-toggle:hover {
+            color: var(--primary-color);
         }
 
         /* --- Header / Hero Section --- */
         header {
-            padding-top: 150px;
             min-height: 80vh;
             display: flex;
             align-items: center;
@@ -319,7 +369,7 @@
         /* --- Map Section --- */
         #lokasi .map-container {
             position: relative;
-            padding-bottom: 50%; /* 16:9 aspect ratio */
+            padding-bottom: 50%;
             height: 0;
             overflow: hidden;
             border-radius: 10px;
@@ -399,30 +449,6 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            #main-nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--secondary-color);
-                padding: 1rem 0;
-            }
-
-            #main-nav ul.show {
-                display: flex;
-            }
-
-            #main-nav ul li {
-                margin: 1rem;
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-            
             .header-content h1 {
                 font-size: 2.5rem;
             }
@@ -441,18 +467,26 @@
         </div>
     </div>
 
-    <!-- Toolbar / Navigasi -->
+    <!-- Sidebar Navigasi Premium -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" id="closeBtn">×</a>
+        <div class="sidebar-header">Menu Navigasi</div>
+        <a href="#beranda" class="sidebar-link active"><i class="fas fa-home"></i> Beranda</a>
+        <a href="#produk" class="sidebar-link"><i class="fas fa-box-open"></i> Katalog Produk</a>
+        <a href="#syarat" class="sidebar-link"><i class="fas fa-clipboard-list"></i> Cara Order</a>
+        <a href="#lokasi" class="sidebar-link"><i class="fas fa-map-marker-alt"></i> Lokasi Kami</a>
+        <a href="#kontak" class="sidebar-link"><i class="fas fa-wallet"></i> Kontak & Pembayaran</a>
+    </div>
+
+    <!-- Overlay untuk background saat sidebar aktif -->
+    <div id="overlay"></div>
+
+    <!-- Toolbar Atas -->
     <nav id="main-nav">
         <a href="#" class="logo">Nabila Store</a>
         <div class="menu-toggle" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
-        <ul id="nav-links">
-            <li><a href="#produk" class="nav-link">Produk</a></li>
-            <li><a href="#syarat" class="nav-link">Cara Order</a></li>
-            <li><a href="#lokasi" class="nav-link">Lokasi Kami</a></li>
-            <li><a href="#kontak" class="nav-link">Kontak & Pembayaran</a></li>
-        </ul>
     </nav>
     
     <!-- Header -->
@@ -474,7 +508,7 @@
                 
                 <!-- Produk 1: Akun FB Fresh -->
                 <div class="product-card">
-                    <img src="https://i.ibb.co/1fYzJ6bt/akun-fb.jpg" alt="Akun Facebook Fresh" class="product-image">
+                    <img src="https://i.ibb.co/yY1hJvW/Screenshot-20240718-234320-WhatsApp.jpg" alt="Akun Facebook Fresh" class="product-image">
                     <div class="product-content">
                         <h3 class="product-title">Akun Facebook Fresh</h3>
                         <p class="product-price">Harga: Rp 500 / Akun</p>
@@ -491,7 +525,7 @@
 
                 <!-- Produk 2: Jasa YouTube -->
                 <div class="product-card">
-                    <img src="https://i.ibb.co/KxSq5Tz/jasa-youtube.jpg" alt="Jasa Tambah View YouTube" class="product-image">
+                    <img src="https://i.ibb.co/FmP7sHd/Screenshot-20240718-234709-WhatsApp.jpg" alt="Jasa Tambah View YouTube" class="product-image">
                     <div class="product-content">
                         <h3 class="product-title">Jasa Interaksi YouTube</h3>
                         <p class="product-price">Mulai dari Rp 50 / view</p>
@@ -524,7 +558,7 @@
 
                 <!-- Produk 3: Jasa Unban WhatsApp -->
                 <div class="product-card">
-                    <img src="https://i.ibb.co/rR90NrP/unban-wa.jpg" alt="Jasa Unban WhatsApp" class="product-image">
+                    <img src="https://i.ibb.co/9h7Kq8T/Screenshot-20240718-235702-WhatsApp.jpg" alt="Jasa Unban WhatsApp" class="product-image">
                     <div class="product-content">
                         <h3 class="product-title">Jasa Unban WhatsApp</h3>
                         <p class="product-price">Rp 30.000 - Rp 100.000</p>
@@ -549,7 +583,7 @@
 
                 <!-- Produk 4: Akun Gmail Fresh -->
                 <div class="product-card">
-                    <img src="https://i.ibb.co/bMM2ZmR/akun-gmail.jpg" alt="Akun Gmail Fresh" class="product-image">
+                    <img src="https://i.ibb.co/3s68KCp/Screenshot-20240718-235850-WhatsApp.jpg" alt="Akun Gmail Fresh" class="product-image">
                     <div class="product-content">
                         <h3 class="product-title">Akun Gmail Fresh</h3>
                         <p class="product-price">Harga: Rp 800 / Akun</p>
@@ -566,7 +600,7 @@
 
                 <!-- Produk 5: Jasa Pembuatan Tools -->
                 <div class="product-card">
-                    <img src="https://i.ibb.co/4RvZF7N/jasa-coding.jpg" alt="Jasa Pembuatan Tools AI Web Store" class="product-image">
+                    <img src="https://i.ibb.co/xGLvWw5/Screenshot-20240719-000216-WhatsApp.jpg" alt="Jasa Pembuatan Tools AI Web Store" class="product-image">
                     <div class="product-content">
                         <h3 class="product-title">Jasa Pembuatan Tools Digital</h3>
                         <p class="product-price">Mulai dari Rp 50.000</p>
@@ -647,24 +681,40 @@
     </footer>
 
     <script>
-        // --- Mobile Menu Toggle ---
+        // --- Premium Sidebar Navigation Logic ---
         const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
+        const closeBtn = document.getElementById('closeBtn');
+        const sidebar = document.getElementById('mySidebar');
+        const overlay = document.getElementById('overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+        function openNav() {
+            sidebar.style.width = '280px'; // Lebar sidebar saat terbuka
+            overlay.style.display = 'block';
+        }
+
+        function closeNav() {
+            sidebar.style.width = '0';
+            overlay.style.display = 'none';
+        }
+
+        menuToggle.addEventListener('click', openNav);
+        closeBtn.addEventListener('click', closeNav);
+        overlay.addEventListener('click', closeNav); // Sidebar tertutup jika klik di luar
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeNav); // Sidebar tertutup jika salah satu link di dalamnya di-klik
         });
 
         // --- Active Nav Link on Scroll ---
         const sections = document.querySelectorAll('section, header');
-        const navLi = document.querySelectorAll('#main-nav ul li a');
+        const navLi = document.querySelectorAll('.sidebar-link');
 
         window.addEventListener('scroll', ()=> {
-            let current = '';
+            let current = 'beranda';
             sections.forEach( section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if(pageYOffset >= (sectionTop - sectionHeight / 3)){
+                if(pageYOffset >= (sectionTop - 80)){ // 80 adalah offset
                     current = section.getAttribute('id');
                 }
             })
@@ -712,7 +762,6 @@
                 detailPesanan = `Deskripsi Kebutuhan:\n${deskripsi}`;
             }
 
-            // Template Pesan WhatsApp
             const pesan = `Halo Admin Nabila Store,
 
 Saya ingin memesan produk berikut:
@@ -723,10 +772,8 @@ ${detailPesanan}
 
 Mohon info selanjutnya untuk total biaya dan proses pembayaran. Terima kasih.`;
 
-            // Membuat link WhatsApp
             const linkWA = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(pesan)}`;
             
-            // Mengarahkan pengguna ke WhatsApp
             window.open(linkWA, '_blank');
         }
     </script>
